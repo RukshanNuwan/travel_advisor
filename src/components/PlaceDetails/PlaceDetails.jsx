@@ -4,7 +4,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 
 import useStyles from './styles';
 
-const PlaceDetails = ({details, selecetd, refProp}) => {
+const PlaceDetails = ({details, selected, refProp}) => {
   const classes = useStyles();
 
   if (selected) refProp?.current?.scrollIntoView({behavior: 'smooth', block: 'start'});
