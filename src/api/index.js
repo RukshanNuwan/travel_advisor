@@ -1,10 +1,8 @@
 import axios from 'axios';
 
-const URL = 'https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete';
-
-const getPlacesData = async (sw, ne) => {
+const getPlacesData = async (type, sw, ne) => {
   try {
-    const {data: {data}} = await axios.get(URL, {
+    const {data: {data}} = await axios.get(`https://travel-advisor.p.rapidapi.com/${type}/list-in-boundary`, {
       params: {
         bl_latitude: sw.lat,
         tr_latitude: ne.lat,

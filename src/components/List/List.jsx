@@ -4,9 +4,7 @@ import {CircularProgress, FormControl, Grid, InputLabel, MenuItem, Select, Typog
 import useStyles from './styles';
 import PlaceDetails from "../PlaceDetails/PlaceDetails";
 
-const List = ({places, childClicked, isLoading}) => {
-  const [type, setType] = useState('restaurant');
-  const [rating, setRating] = useState('');
+const List = ({places, childClicked, isLoading, type, rating, setType, setRating}) => {
   const [eleRefs, setEleRefs] = useState([]);
 
   const classes = useStyles();
@@ -16,7 +14,7 @@ const List = ({places, childClicked, isLoading}) => {
     const refs = Array(places?.length).fill().map((_, index) => eleRefs[index] || createRef());
 
     setEleRefs(refs);
-  }, [places])
+  }, [places, eleRefs])
 
   return (
     <div className={classes.container}>
