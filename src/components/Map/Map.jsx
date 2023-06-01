@@ -4,7 +4,7 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
 import useStyles from './styles';
 
-const Map = ({coordinates, setCoordinates, setBounds, places, setChildClicked}) => {
+const Map = ({coordinates, setCoordinates, setBounds, places, setChildClicked, weatherData}) => {
   const classes = useStyles();
   const isDesktop = useMediaQuery('(min-width:600px)');
 
@@ -49,6 +49,12 @@ const Map = ({coordinates, setCoordinates, setBounds, places, setChildClicked}) 
                 </Paper>
               )
             }
+          </div>
+        ))}
+
+        {weatherData?.list?.map((data, index) => (
+          <div key={index} lat={data.coord.lat} lng={data.coord.lon}>
+            <img src={`http://openweathermap.org/img/w/${data.weather[0].icon}.png`} alt="" height={100}/>
           </div>
         ))}
       </GoogleMapReact>
